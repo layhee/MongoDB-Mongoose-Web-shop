@@ -13,6 +13,7 @@ const methodOverride = require("method-override")
 // Middle-ware
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"))
+app.use(express.static('public'))
 
 // Database Hook Up
 mongoose.connect(process.env.DATABASE_URI)
@@ -45,12 +46,18 @@ app.get('/store/new', (req,res) => {
 
 // DELETE
 app.delete('/store/:id', (req,res) =>{
-    Store.findByIdAndDelete(req.params.id, (err, data) =>{
+    Store.findByIdAndDelete(req.params.id, (err, data) => {
         res.redirect('/store')
     })
 })
 
 // UPDATE
+app.put('/store/:id', (req,res) => {
+    Store.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updateStore) => {
+        res.redirect(`/store/${req.params.id}`)
+    })
+})
+
 // CREATE
 app.post('/store', (req,res) => {
     Store.create(req.body, (err, item) => {
@@ -58,7 +65,11 @@ app.post('/store', (req,res) => {
     })
 })
 // EDIT
-// app.get('/store/:id/edit', )
+app.get('/store/:id/edit', (req,res) => {
+    Store.findById(req.params.id, (err, item) => {
+        res.render('edit.ejs', {item})
+    })
+})
 
 // SHOW
 app.get('/store/:id', (req,res) => {
