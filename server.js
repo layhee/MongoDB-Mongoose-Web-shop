@@ -57,7 +57,6 @@ app.put('/store/:id', (req,res) => {
         res.redirect(`/store/${req.params.id}`)
     })
 })
-
 // CREATE
 app.post('/store', (req,res) => {
     Store.create(req.body, (err, item) => {
