@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
   <!-- ---------header calls-------- -->
 <%- include('../partials/head.ejs')%>
 <%- include('../partials/html_header.ejs')%>
 <!-- --------end headers----------- -->
+=======
+  <head>
+    <meta charset="utf-8" />
+    <title>Mongoose Store</title>
+  </head>
+>>>>>>> 92534d2ce67ac83f775cd34196d050e431ac8398
   <div>
     <h1>Mongoose Store</h1>
     <div id="show">
         <h2><%= item.name %></h2>
               <img src="<%=item.img%>"></a><br>          
+<<<<<<< HEAD
         <span class='info'></span><%=item.description%><br>
         <%=item.price%><br>
         <%=item.quantity%><br>
         <a href="">BUY NOW</a><br>
         <a href="/store/<%=item._id%>/edit">Edit</a>
+=======
+        <span class='info'></span><%=item.description%>
+>>>>>>> 92534d2ce67ac83f775cd34196d050e431ac8398
     </div>
   </body>
 </html>

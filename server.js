@@ -5,6 +5,7 @@ const Store = require('./models/store.js')
 require('dotenv').config()
 const PORT = process.env.PORT
 // const storeSeed = require('./models/storeSeed.js')
+// const storeSeed = require('./models/storeSeed.js')
 
 // Dependenacies
 const mongoose = require('mongoose')
@@ -21,16 +22,23 @@ mongoose.connect(process.env.DATABASE_URI)
 // DB success/fail and callback
 const db = mongoose.connection
 db.on("error", (err) => console.log('MongoDB as encountered an error: ' + err.message))
+db.on("error", (err) => console.log('MongoDB as encountered an error: ' + err.message))
 db.on("connected", () => console.log(`Mongo connected at ${db.host} : ${db.port}`))
 db.on('disconnected', () => console.log('Mongo disconnected'))
 
 // SEED
 app.get('/store/seed', (req,res) => {
     Store.create(storeSeed, (error, item) => {
+// SEED
+app.get('/store/seed', (req,res) => {
+    Store.create(storeSeed, (error, item) => {
         res.redirect('/store')
     }) 
 })
+    }) 
+})
 
+// INDEX
 // INDEX
 app.get('/store', (req,res) => {
     Store.find({}, (error, items) => {
@@ -43,8 +51,12 @@ app.get('/store', (req,res) => {
 app.get('/store/new', (req,res) => {
     res.render('new.ejs')
 })
+// NEW
+app.get('/store/new', (req,res) => {
+    res.render('new.ejs')
+})
 
-// DELETE
+// DELETEELETE
 app.delete('/store/:id', (req,res) =>{
     Store.findByIdAndDelete(req.params.id, (err, data) => {
         res.redirect('/store')
@@ -70,6 +82,12 @@ app.get('/store/:id/edit', (req,res) => {
     })
 })
 
+// SHOW
+app.get('/store/:id', (req,res) => {
+    Store.findById(req.params.id, (err, item) => {
+        res.render('show.ejs', {item})
+    })
+})
 // SHOW
 app.get('/store/:id', (req,res) => {
     Store.findById(req.params.id, (err, item) => {
