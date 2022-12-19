@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Mongoose Store</title>
-  </head>
-  <iv>
-    <h1>Mongoose Store</h1>
+<!-----------header calls---------->
+<%- include('../partials/head.ejs')%>
+<%- include('../partials/html_header.ejs')%>
+<!----------end headers------------>
+<div>
       <div id="store-container">
-      <ul> 
-        <li>
-          <%items.forEach(item => { %>
-            <a href="/store/<%item._id%><%=item.name%>">
-              <h2><%=item.name%></h2></a>
-              <form action="/store/<%=item._id%>?_method=DELETE" method="POST">
-                <input type="submit" value="DELETE" />
-              </form>
-              <img src="<%item.img%>"><br>
+        <%items.forEach(item => { %>
+          <a href="/store/<%=item._id%>">
+            <h2><%=item.name%></h2>
+            <img src="<%=item.img%>"></a><br>
             <%=item.description%>
-            <%})%>
-        </li>
-      </ul>
+            <form action="/store/<%=item._id%>?_method=DELETE" method="POST">
+              <input type="submit" value="DELETE" />
+            </form>
+           <%})%>          
       </div>
   </body>
 </html>

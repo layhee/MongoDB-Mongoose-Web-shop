@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<!-- ---------header calls-------- -->
+<%- include('../partials/head.ejs')%>
+<%- include('../partials/html_header.ejs')%>
+<!-- --------end headers----------- -->
+    <div>
+        <h1>What are you Selling?</h1>
+		<form action="/store" method="POST">
+			What do you call it?: <input type="text" name="name" /><br />
+			What's it do?: <input type="text" name="description" /><br />
+			How much?: <input type="number" name="price" /><br />
+            How many?: <input type="number" name="qty" /><br />
+			<input type="submit" name="" value="Add Item" />
+		</form>      
+    </div>
+  </body>
+</html>
