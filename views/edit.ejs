@@ -1,18 +1,24 @@
 <!DOCTYPE html>
 <html>
-<!-- ---------header calls-------- -->
+<!-----------header calls---------->
 <%- include('../partials/head.ejs')%>
-<%- include('../partials/html_header.ejs')%>
-<!-- --------end headers----------- -->
-    <div>
+<!----------end headers------------->
+<header>
+  <h1>
+    <a id="home" href="/store">MONGOOSE STORE</a>
+    <h3>A little marketplace on the web for your web development educational needs.</h3>
+</h1>
+  <a class ="buynow" href="../new">Add a New Item</a>
+</header>
+<div>
         <h1>Edit Item</h1>
 		<form id="edit" action="/store/<%=item._id%>?_method=PUT" method="POST">
         What do you call it?: <input type="text" name="name" value="<%=item.name%>"/><br />
-        What's it do?: <input type="text" name="name" value="<%=item.description%>"/><br />
+        What's it do?: <input type="text" name="description" value="<%=item.description%>"/><br />
         How much?: <input type="number" name="price" value="<%=item.price%>"><br />
         How many?: <input type="number" name="qty" value="<%=item.qty%>"><br />
         What does it look like?: (image URL please) <input type="string" name="img" value="<%=item.img%>" /><br />
-			<input type="submit" name="" value="Update Item" />
+			<input type="submit" value="Update Item" />
 		</form>      
     </div>
   </body>

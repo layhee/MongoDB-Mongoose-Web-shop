@@ -4,7 +4,7 @@ const app = express()
 const Store = require('./models/store.js')
 require('dotenv').config()
 const PORT = process.env.PORT
-// const storeSeed = require('./models/storeSeed.js')
+const storeSeed = require('./models/storeSeed.js')
 
 
 // Dependenacies
@@ -24,7 +24,6 @@ const db = mongoose.connection
 db.on("error", (err) => console.log('MongoDB as encountered an error: ' + err.message))
 db.on("connected", () => console.log(`Mongo connected at ${db.host} : ${db.port}`))
 db.on('disconnected', () => console.log('Mongo disconnected'))
-
 
 // SEED
 app.get('/store/seed', (req,res) => {
@@ -55,16 +54,21 @@ app.delete('/store/:id', (req,res) =>{
 
 // UPDATE
 app.put('/store/:id', (req,res) => {
-    Store.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updateStore) => {
+    Store.findByIdAndUpdate(req.params.id, 
+        {$set: (req.body) }, 
+        {new: true}, 
+        (err, updateStore) => {
         res.redirect(`/store/${req.params.id}`)
     })
 })
+
 // CREATE
 app.post('/store', (req,res) => {
     Store.create(req.body, (err, item) => {
         res.redirect('/store')
     })
 })
+
 // EDIT
 app.get('/store/:id/edit', (req,res) => {
     Store.findById(req.params.id, (err, item) => {
