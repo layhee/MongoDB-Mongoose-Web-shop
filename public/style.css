@@ -82,8 +82,24 @@ input[type=button]{
     color: #fff;
     border: none;
     margin: 12px 24px;
+    box-shadow: 2px 2px 2px rgba(104, 176, 244, .4);
 }
 input[type=button]:hover{
+    background-color: rgb(73, 136, 194);
+    color:rgb(255, 255, 255);
+    box-shadow: 2px 2px 2px rgba(73, 136, 194, .4);
+    border: none;
+}
+input[type=submit]{
+    background-color: rgb(104, 176, 244);
+    padding: 12px 16px;
+    border-radius: 4px;
+    color: #fff;
+    border: none;
+    margin: 12px 24px;
+    box-shadow: 2px 2px 2px rgba(104, 176, 244, .4);
+}
+input[type=submit]:hover{
     background-color: rgb(73, 136, 194);
     color:rgb(255, 255, 255);
     box-shadow: 2px 2px 2px rgba(73, 136, 194, .4);
@@ -93,11 +109,11 @@ input[type=button]:hover{
     color: rgb(244, 81, 16);
     font-family: 'Inter Tight', sans-serif;
     font-weight: 800;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     margin: 12px 24px;
 }
 .qty{
-    color: rgb(244, 81, 16);
+    color: rgb(25, 137, 17);
     font-size: 1.4rem;
 }
 .price{
