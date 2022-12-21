@@ -61,10 +61,10 @@ li{
     display: flex;
     flex-direction: column;
     margin: 20px 12px;
-    max-width: 33%;
+    max-width: 240px;
 }
 li img{
-    max-width: 280px;
+    max-width: 240px;
 }
 p{
     font-family: 'Inter Tight', sans-serif;
@@ -75,14 +75,32 @@ p{
     flex-direction: column;
     justify-content: center;
 }
-.buynow{
+input[type=button]{
     background-color: rgb(104, 176, 244);
-    padding: 8px 12px;
+    padding: 12px 16px;
     border-radius: 4px;
     color: #fff;
+    border: none;
+    margin: 12px 24px;
 }
-.buynow:hover{
+input[type=button]:hover{
     background-color: rgb(73, 136, 194);
     color:rgb(255, 255, 255);
     box-shadow: 2px 2px 2px rgba(73, 136, 194, .4);
+    border: none;
+}
+.out{
+    color: rgb(244, 81, 16);
+    font-family: 'Inter Tight', sans-serif;
+    font-weight: 800;
+    font-size: 1.6rem;
+    margin: 12px 24px;
+}
+.qty{
+    color: rgb(244, 81, 16);
+    font-size: 1.4rem;
+}
+.price{
+    font-size: 1.4rem;
+    color:rgb(57, 57, 57);
 }
